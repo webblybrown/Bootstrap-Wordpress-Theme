@@ -1,4 +1,4 @@
-# Blank Wordpress Sites using Bootstrap and Font Awesome
+# Wordpress Site using Bootstrap and Font Awesome
 
 ## Prerequisites
 - Must have `npm`
