@@ -1,4 +1,6 @@
 var gulp = require('gulp'),
+autoprefixer = require('gulp-autoprefixer'),
+moduleImporter = require('sass-module-importer'),
 gutil = require('gulp-util'),
 browserify = require('gulp-browserify'),
 concat = require('gulp-concat');
@@ -49,14 +51,17 @@ use: [pngcrush()]
 });
 // Compress all images
 gulp.task('css', function() {
-gulp.src(sassSources)
-.on('error', function(error) {
-console.log('Error: ' + error.message);
-})
-.pipe(sass({outputStyle: sassStyle})
-.on('error', sass.logError)
-)
-.pipe(gulp.dest(outputDir));
+  gulp.src(sassSources)
+    .pipe(sass({importer: moduleImporter()}))
+    .on('error', function(error) {
+      console.log('Error: ' + error.message);
+    })
+    .pipe(sass({outputStyle: 'expanded'}))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions', 'iOS 8'],
+      cascade: false
+    }))
+    .pipe(gulp.dest(outputDir));
 });
 gulp.task('watch', function() {
 gulp.watch(jsSources, ['js']);
