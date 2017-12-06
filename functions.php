@@ -2,23 +2,22 @@
 define('PUBLIC_FOLDER', get_template_directory_uri());
 
 if(!function_exists('theme_setup')) {
-  function theme_setup() {
-    add_theme_support('automatic-feed-links');
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
-    add_theme_support('html5', [
-      'search-form',
-      'gallery',
-      'caption',
-    ]);
-    add_image_size('example', 1600, 750, true);
+  add_theme_support( 'html5', array(
+    'comment-list',
+    'search-form',
+    'comment-form',
+    'gallery',
+    'caption',
+  ) );
+    add_image_size('logo', 255, 135, true);
 
-    register_nav_menus([
-      'main_menu' => 'Main Menu'
-    ]);
-  }
+
+  // This theme uses wp_nav_menu() in one location.
+  register_nav_menus( array(
+    'primary' => __( 'Primary Menu', 'orchard_hill' ),
+  ) );
 }
-add_action('after_setup_theme', 'theme_setup');
+
 
 function theme_scripts() {
   $template_uri = PUBLIC_FOLDER;
@@ -31,12 +30,23 @@ function theme_scripts() {
   wp_enqueue_script('wow-js');
   wp_enqueue_script('bootstrap-js', $template_uri . '/scripts/bootstrap.min.js', array('jquery'), '3.3.7', true );
   wp_enqueue_script('bootstrap-js');
-  wp_register_script('scripts', $template_uri . '/scripts.js', ['jquery'], '', true);
-  wp_enqueue_script('scripts');
   wp_register_style('theme-style', $stylesheet_uri);
   wp_enqueue_style('theme-style');
-}
-add_action('wp_enqueue_scripts', 'theme_scripts');
+  wp_register_script( 'googlemapsapi', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array(), null, false );
+  wp_register_script( 'modernizr', get_template_directory_uri() . '/static/js/vendor/modernizr-2.6.2.min.js', array(), null, false );
+  wp_register_script( 'scripts', get_template_directory_uri() . '/static/js/all.min.js', array( 'jquery' ), 1.2, true );
+  wp_register_style('fancybox', get_template_directory_uri() . '/scripts/fancybox/jquery.fancybox-1.3.4.css');
+  wp_register_style('fonts', 'http://fast.fonts.net/cssapi/2e401f7d-c270-45e0-839f-9d502031fadd.css');
+  wp_enqueue_style('fonts');
+  // Enqueue the scripts
+  wp_enqueue_script( 'modernizr' ); 
+  if ( is_page_template('template-contact.php') ) { 
+    wp_enqueue_script( 'googlemapsapi' ); 
+  };
+    wp_register_script('scripts', $template_uri . '/scripts.js', ['jquery'], '', true);
+  wp_enqueue_script('scripts');
+  }
+   add_action('wp_enqueue_scripts', 'theme_scripts');
 
 function async_script_load($tag, $handle) {
   if(is_admin()) return $tag;
@@ -102,3 +112,113 @@ add_action( 'init', 'login_checked_remember_me' );
 function rememberme_checked() {
 echo "<script>document.getElementById('rememberme').checked = true;</script>";
 }
+function orchard_hill_widgets_init() {
+  register_sidebar( array(
+    'name'          => __( 'Sidebar', 'orchard_hill' ),
+    'id'            => 'sidebar-1',
+    'description'   => '',
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '<h3 class="widget-title">',
+    'after_title'   => '</h3>',
+  ) );
+}
+
+
+// Register Custom Post Type
+function job_cpt() {
+
+  $labels = array(
+    'name'                => _x( 'Jobs', 'Post Type General Name', 'orchard_hill' ),
+    'singular_name'       => _x( 'Job', 'Post Type Singular Name', 'orchard_hill' ),
+    'menu_name'           => __( 'Jobs', 'orchard_hill' ),
+    'parent_item_colon'   => __( 'Parent Job:', 'orchard_hill' ),
+    'all_items'           => __( 'All Jobs', 'orchard_hill' ),
+    'view_item'           => __( 'View Job', 'orchard_hill' ),
+    'add_new_item'        => __( 'Add New Job', 'orchard_hill' ),
+    'add_new'             => __( 'Add New', 'orchard_hill' ),
+    'edit_item'           => __( 'Edit Job', 'orchard_hill' ),
+    'update_item'         => __( 'Update Job', 'orchard_hill' ),
+    'search_items'        => __( 'Search Job', 'orchard_hill' ),
+    'not_found'           => __( 'Not found', 'orchard_hill' ),
+    'not_found_in_trash'  => __( 'Not found in Trash', 'orchard_hill' ),
+  );
+  $args = array(
+    'label'               => __( 'job', 'orchard_hill' ),
+    'description'         => __( 'Job post type', 'orchard_hill' ),
+    'labels'              => $labels,
+    'supports'            => array( 'title' ),
+    'hierarchical'        => false,
+    'public'              => true,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'show_in_nav_menus'   => true,
+    'show_in_admin_bar'   => true,
+    'menu_position'       => 5,
+    'can_export'          => true,
+    'has_archive'         => true,
+    'exclude_from_search' => false,
+    'publicly_queryable'  => true
+  );
+  register_post_type( 'job', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'job_cpt', 0 );
+
+
+/**
+ * Custom template tags for this theme.
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom functions that act independently of the theme templates.
+ */
+require get_template_directory() . '/inc/extras.php';
+
+/**
+ * Extra shortcodes for this template.
+ */
+require get_template_directory() . '/inc/shortcodes.php';
+
+
+
+
+/**
+ * Added by Simon
+ */
+function register_my_menus() {
+  register_nav_menus(array('mini-nav' => __('Top menu' ),));
+  register_nav_menus(array('main-nav' => __('Main Menu' ),));
+  register_nav_menus(array('q-links' => __('Quick Links' ),));
+  register_nav_menus(array('footer-nav' => __('Footer Menu' ),));
+}
+add_action( 'init', 'register_my_menus' );
+
+function get_custom_breadcrumb($post_parent) {
+  $output = '';
+  $parent_title = get_the_title($post_parent);
+  //echo '#' . $parent_title . '#';
+  $output .= '<li><a href=' . get_permalink($post->post_parent) . ' ' . 'title=' . $parent_title . '>' . $parent_title . '</a> » </li>' . "\n";
+  return $output;
+}
+
+function get_breadcrumb($post_parent) {
+  $output = '';
+  $parent_title = get_the_title($post_parent);
+  $output .= '<li><a href=' . get_permalink($post->post_parent) . ' ' . 'title=' . $parent_title . '>' . $parent_title . '</a> » </li>' . "\n";
+  return $output;
+}
+
+// define( 'ACF' , true );
+// include_once( get_template_directory() . '/acf/advanced-custom-fields/acf.php' );
+
+// add_action('acf/register_fields', 'my_register_fields');
+// function my_register_fields() {
+//   include_once( get_template_directory() . '/acf/acf-repeater/repeater.php');
+//   include_once( get_template_directory() . '/acf/acf-flexible-content/flexible-content.php');
+// }
+
+// include_once( get_template_directory() . '/acf/acf-options-page/acf-options-page.php');

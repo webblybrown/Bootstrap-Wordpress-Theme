@@ -8,38 +8,40 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
     <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
-  <nav class="navbar navbar-default navbar-fixed-top main-menu">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="<?php echo home_url(); ?>">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" />
-            </a>
+  <div class="row">
+    <div class="col-md-6 text-left">
+      <img src="<?php the_field('logo', 'options'); ?>" />
     </div>
-    <div class="nav-walker">
-        <?php
-            wp_nav_menu( array(
-                'menu'              => 'primary',
-                'theme_location'    => 'primary',
-                'depth'             => 2,
-                'container'         => 'div',
-                'container_class'   => 'collapse navbar-collapse',
-                'container_id'      => 'bs-example-navbar-collapse-1',
-                'menu_class'        => 'nav navbar-nav',
-                'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                'walker'            => new WP_Bootstrap_Navwalker())
-            );
-        ?>
+    <div class="col-md-6 text-right">
+      <ul>
+        <li><?php the_field('address', 'options'); ?></li>
+        <li><?php the_field('phone_number', 'options'); ?></li>
+        <li><?php the_field('email', 'options'); ?></li>
+      </ul>
     </div>
-    </div>
-</nav>
+  </div>
+</div>
+
+      <nav class="site-nav">
+        <div class="mini-nav">
+          <div class="w">
+            <?php wp_nav_menu(array('theme_location' => 'mini-nav')); ?>
+          </div>
+        </div>
+        <div class="main-nav">
+          <div class="w">
+            <?php wp_nav_menu(array('theme_location' => 'main-nav')); ?>
+            <ul id="home-url">
+              <li>
+                <a class="home-link" href="<?php echo $home_url; ?>"><span>Home</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 

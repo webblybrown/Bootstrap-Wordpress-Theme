@@ -1,5 +1,5 @@
 /*!
-Theme Name: SMulti Theme 
+Theme Name: Multi Theme 
 Theme URI: https://github.com/DesignImage/https://github.com/DesignImage/multitheme.git
 Author: Design Image
 Author URI: https://github.com/DesignImage
@@ -15,10 +15,20 @@ Version: 1.0.0
 @import 'globals/font-awesome';
 @import 'globals/animate';
 @import 'globals/owl.carousel';
+@import 'globals/legacy';
 
 
 @import 'tools/mixins';
 
 @import 'elements/base';
+@import 'elements/header';
+@import 'elements/menus';
+@import 'elements/slider';
+@import 'elements/page';
+@import 'elements/quotes';
+@import 'elements/boxes';
+@import 'elements/testimonials';
+@import 'elements/news';
+@import 'elements/footer';
 
 @import 'components/wysiwyg';
