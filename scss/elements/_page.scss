@@ -60,6 +60,9 @@
 }
 	}
 	.content {
+	h2, .job-block-title {
+      	@include font-size(3);
+      }
 		h1 {
 		color: $theme;
 		text-transform: uppercase;
@@ -73,9 +76,33 @@
 		width: 20%;
 		margin-left: 15px;
       }
+
 	}
 	}
     .entry-header {
     	padding: 0px;
+    }
+    .salary {
+       @include font-size(1.5);
+    }
+    .job-header {
+    	h1 {
+		color: $theme;
+		text-transform: uppercase;
+		@include font-size(3);
+	 &:after {
+		background: none repeat scroll 0 0 $grey;
+		content: "";
+		display: inline-block;
+		height: 5px;
+		position: relative;
+		width: 10%;
+		margin-left: 15px;
+	}
+      }
+     }
+
+    .widget-title {
+    	@include font-size(2);
     }
 }

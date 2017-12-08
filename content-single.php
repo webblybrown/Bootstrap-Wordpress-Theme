@@ -26,10 +26,11 @@
 				echo '		<header class="job-header">';
 				echo '			<h1>';
 				the_title();
+				
+				echo '			</h1>';
 				if($salary) {
 					echo ' <span class="salary">('.$salary.')</span>';
 				}
-				echo '			</h1>';
 				if($location || $hours) {
 					echo '		<div class="job-meta-wrap">';
 					if($location) {

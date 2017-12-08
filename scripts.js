@@ -3,6 +3,10 @@
 
 $('.slider').owlCarousel({
     loop:true,
+    animateOut: 'fadeOut',
+    autoplay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true,
     responsive:{
         0:{
             items:1
@@ -17,6 +21,10 @@ $('.slider').owlCarousel({
 })
 $('.footer-logos').owlCarousel({
     loop:true,
+    animateOut: 'fadeOut',
+    autoplay:true,
+    autoplayTimeout:5000,
+    autoplayHoverPause:true,
     responsive:{
         0:{
             items:3

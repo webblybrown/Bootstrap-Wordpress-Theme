@@ -1,17 +1,24 @@
 <?php get_header(); ?>
-		<section class="main-content">
-			<div class="inside-wrap">
-				<div class="w">
-					<div class="g rev">
-						<div class="content">
-							<?php while ( have_posts() ) : the_post(); ?>
-								<?php get_template_part( 'content', 'single' ); ?>
-								<?php if(!get_post_type() === 'job'): ?>
-									<?php orchard_hill_post_nav(); ?>
-								<?php endif; ?>
-							<?php endwhile; ?>
-						</div>
-						<div class="sidebar">
+
+<div class="container page">
+							<ul class="breadcrumb">
+								<li><a href="/"><span>Home</span></a></li>
+								<?php
+									$ancestors_array = array_reverse(array_map('get_post', get_post_ancestors($post )));
+									$ancestors_array[] = $post;
+									$i = 1;
+									$count = count($ancestors_array);
+									foreach ($ancestors_array as $value) {
+										if ($count == $i++) {
+											echo '<li><span>' . get_the_title($post) . '</span></li>';
+										} else {
+											echo '<li><a href="' . get_permalink($value) . '">' . get_the_title($value) . '</a></li>';
+										}
+									}
+								?> 
+							</ul>
+				<div class="col-md-3 no-pad-left">
+									<div class="sidebar">
 						<?php if(get_post_type() === 'job'): ?>
 							<div id="secondary" class="widget-area" role="complementary">
 								<aside class="widget">		
@@ -81,8 +88,17 @@
 							<?php get_sidebar(); ?>
 						<?php endif; ?>
 						</div>
-					</div>
 				</div>
-			</div>
-		</section>
+				 <div class="col-md-9 content">
+				 		<?php while ( have_posts() ) : the_post(); ?>
+								<?php get_template_part( 'content', 'single' ); ?>
+								<?php if(!get_post_type() === 'job'): ?>
+									<?php orchard_hill_post_nav(); ?>
+								<?php endif; ?>
+							<?php endwhile; ?>
+				 </div>
+
+</div>
+
+
 <?php get_footer(); ?>
