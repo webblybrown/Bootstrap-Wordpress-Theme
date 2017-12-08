@@ -1,9 +1,8 @@
-<?php get_header(); ?>
-		<section class="main-content">
-			<div class="inside-wrap">
-				<div class="w">
-					<div class="g rev">
-						<div class="content">
+<?php 
+
+get_header(); ?>
+		<img src="<?php the_field('header_image'); ?>" style="width: 100%"/>
+			<div class="container page">
 							<ul class="breadcrumb">
 								<li><a href="/"><span>Home</span></a></li>
 								<?php
@@ -20,17 +19,8 @@
 									}
 								?> 
 							</ul>
-							<div class="blocked">
-								<?php while ( have_posts() ) : the_post(); ?>
-
-									<?php get_template_part( 'content', 'page' ); ?>
-
-								<?php endwhile; // end of the loop. ?>
-								<?php $id = get_queried_object_id(); ?>
-
-							</div>
-						</div>
-						<div class="sidebar">
+				<div class="col-md-3 no-pad-left">
+											<div class="sidebar">
 							<div class="sidebar-item">
 								<div class="sub-nav">
 									<?php
@@ -103,13 +93,7 @@
 								?>
 							</div>
                             
-<!--
-                            	<a href="/jobs/about-us/">
-									<div class="">                  
-										
-							    	</div>
-							    </a>	
--->
+
 							
 								<a href="/about/jobs">
 									<div class="apply-now-button">                  
@@ -117,70 +101,20 @@
 							    	</div>
 							    </a>	 
                                 
-<!--
-							    <a href="/students-apply-here">
-									<div class="apply-now-button">
-										Students Apply Here
-							    	</div>
-							    </a>
--->
-							
-							<div class="sidebar-item">
-								<div class="box">
-									<div class="blocked">
-										<ul class="featured-links">
-										<?php if(get_field('featured_links', 'option')) : 
-											while(have_rows('featured_links', 'option')): the_row();
-												echo '<li>';
-												echo '	<a href="'.get_sub_field('link').'">';
-												echo '		<div class="link-image link-image--'.get_sub_field('image').'">';
 
-												echo '		</div>';
-												echo '		<div class="mask text">';
-												echo '			'.get_sub_field('text');
-												echo '		</div>';
-												echo '	</a>';
-												echo '</li>';	
-											endwhile;
-										else : ?>
-											<li>
-												<a href="/learners/">
-													<div class="link-image link-image--orange">
-
-													</div>
-													<div class="mask text">
-														Learners
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="/academy-trust/">
-													<div class="link-image link-image--red">
-
-													</div>
-													<div class="mask text">
-														Parents
-													</div>
-												</a>
-											</li>
-											<li>
-												<a href="/partnerships/">
-													<div class="link-image link-image--yellow">
-
-													</div>
-													<div class="mask text">
-														Partnerships
-													</div>
-												</a>
-											</li>
-										<?php endif; ?>
-										</ul>
-									</div>
-								</div>
-							</div>
+	
 						</div>
-					</div>
+
 				</div>
+                <div class="col-md-9 content">
+                	<?php while ( have_posts() ) : the_post(); ?>
+
+									<?php get_template_part( 'content', 'page' ); ?>
+
+								<?php endwhile; // end of the loop. ?>
+								<?php $id = get_queried_object_id(); ?>
+                </div>
+
 			</div>
-		</section>
+	 
 <?php get_footer(); ?>

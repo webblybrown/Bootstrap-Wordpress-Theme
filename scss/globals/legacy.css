@@ -996,7 +996,7 @@ tr:nth-child(even) {
     background:#f3f3f3
 }
 a {
-    color:#0b7a86;
+    color:$theme-alt;
     text-decoration:none
 }
 a:hover {
@@ -1016,7 +1016,7 @@ blockquote {
     position:relative
 }
 blockquote p {
-    color:#0b7a86;
+    color:$theme-alt;
     font-weight:bold;
     position:relative;
     padding:8px 16px 8px 16px;
@@ -1546,12 +1546,12 @@ select {
     color:#bbb
 }
 .minict_wrapper ul li.selected {
-    color:#0b7a86;
+    color:$theme-alt;
     background:#c1f0ef
 }
 .minict_wrapper ul li.highlighted {
     color:#fff;
-    background:#0b7a86
+    background:$theme-alt
 }
 .minict_wrapper ul li.hidden {
     display:none
@@ -1696,8 +1696,7 @@ input[type="week"]:hover,
 input[type="text"]:hover,
 textarea:hover {
     background:#fff;
-    border-color:#0198A9
-}
+    border-color:$theme;}
 input[type="email"]:focus,
 input[type="number"]:focus,
 input[type="password"]:focus,
@@ -1715,8 +1714,7 @@ input[type="week"]:focus,
 input[type="text"]:focus,
 textarea:focus {
     background:#fff;
-    border-color:#0198A9
-}
+    border-color:$theme;}
 body .wpcf7 span.wpcf7-list-item {
     display:inline-block;
     width:50%;
@@ -1972,13 +1970,12 @@ div.wpcf7 {
     color:#fff
 }
 .blocked.red {
-    background:#0198A9
-}
+    background:$theme;}
 .blocked.orange {
     background:#ee7316
 }
 .blocked.teal {
-    background:#0b7a86
+    background:$theme-alt
 }
 .blocked.button.teal a:hover {
   background: #0198A9;
@@ -2000,8 +1997,7 @@ input[type="submit"] {
 .nav-previous a.red,
 .nav-next a.red,
 input[type="submit"] {
-    background:#0198A9
-}
+    background:$theme;}
 .button.orange,
 .inline-buttons a.orange,
 .nav-previous a.orange,
@@ -2013,7 +2009,7 @@ input[type="submit"]:hover {
 .inline-buttons a.teal,
 .nav-previous a.teal,
 .nav-next a.teal {
-    background:#0b7a86
+    background:$theme-alt
 }
 .blocked.button,
 .inline-buttons a.blocked,
@@ -2298,7 +2294,7 @@ input[type="submit"] {
     Helvetica,
     Arial,
     sans-serif;
-    background:#0b7a86;
+    background:$theme-alt;
     line-height:1.1;
     padding:20px 30px 20px 25px;
     margin:0;
@@ -2526,7 +2522,7 @@ video {
     color:#000
 }
 .job-title a:hover {
-    color:#0b7a86
+    color:$theme-alt
 }
 .salary {
     font-weight:normal;
@@ -2559,10 +2555,9 @@ video {
     font-weight:bold
 }
 .action-link a {
-    color:#0198A9
-}
+    color:$theme;}
 .action-link a:hover {
-    color:#0b7a86
+    color:$theme-alt
 }
 .action-link--download {
     float:right
@@ -2705,12 +2700,12 @@ video {
     padding:0.75rem 0.75rem
 }
 .main-nav a:hover {
-    background:#0b7a86
+    background:$theme-alt
 }
 .main-nav .current_page_parent a,
 .main-nav .current-page-ancestor a,
 .main-nav .current_page_item a {
-    background:#0b7a86
+    background:$theme-alt
 }
 .main-nav .home-link {
     padding:8px 16px;
@@ -2766,7 +2761,7 @@ video {
         float: right;
         height: 83px;
         width: 103px;
-        background: #0b7a86;
+        background: $theme-alt;
         border-left: 1px #5c5c5c solid;
         padding: 37px 30px;
         transition: .3s;
@@ -2899,8 +2894,7 @@ video {
 .content h1,
 .content h3,
 .content h4 {
-    color:#0198A9
-}
+    color:$theme;}
 .content img {
     max-width:100%;
     height:auto
@@ -2989,10 +2983,9 @@ video {
 .featured-news-title {
     margin-bottom:8px;
     margin-bottom:0.5rem;
-    color:#0198A9
-}
+    color:$theme;}
 .featured-news-title.teal {
-    color:#0b7a86
+    color:$theme-alt
 }
 .featured-news-title.orange {
     color:#ee7316
@@ -3025,7 +3018,7 @@ video {
 .sub-nav .current_page_item a,
 .sub-nav a:hover,
 .sub-nav>ul>li:hover {
-    background:#0b7a86
+    background:$theme-alt
 }
 .sub-nav>ul>li {
     border-bottom:1px solid #F7F7F7;
@@ -3070,8 +3063,7 @@ video {
     content:''
 }
 .full-width h1 {
-    color:#0198A9
-}
+    color:$theme;}
 .full-feed .post {
     margin-bottom:15px
 }
@@ -3124,13 +3116,12 @@ video {
     opacity:.85
 }
 .news-item a:hover h3 {
-    color:#0198A9
-}
+    color:$theme;}
 .news-item a {
     color:#292929
 }
 .news-item h3 {
-    color:#0b7a86;
+    color:$theme-alt;
     font-family:"Frutiger W01",
     Helvetica,
     Arial,
@@ -3171,7 +3162,7 @@ video {
     content:''
 }
 .widget-area {
-    background:#0b7a86;
+    background:$theme-alt;
     padding-top:10px;
     padding-bottom:30px;
     color:#fff
@@ -3325,7 +3316,7 @@ input.search-field:hover:-ms-input-placeholder {
 .news-feed .flex-direction-nav a {
     top:-45px;
     text-align:center;
-    color:#0b7a86;
+    color:$theme-alt;
     opacity:1
 }
 .news-feed .flex-direction-nav .flex-prev {
@@ -3352,7 +3343,7 @@ input.search-field:hover:-ms-input-placeholder {
 .main-footer a:hover,
 .main-footer a[href^=tel]:hover,
 .main-footer .footer-item:hover {
-    color:#0b7a86
+    color:$theme-alt
 }
 .footer-alpha {
     /* background:#363636 url("static/images/footer-top-bg.png") */

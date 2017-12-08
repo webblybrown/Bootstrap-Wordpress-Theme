@@ -1,0 +1,36 @@
+footer {
+	.footer {
+		position: relative;
+		background: $mid-grey;
+		color: #fff;
+		padding: 30px 0px;
+		p,a {
+			@include font-size(1.7);
+		}
+		.footer-right {
+			float: right;
+		}
+	}
+	.copyright {
+		background: $dark-grey;
+		padding: 30px 0px;
+		color: #fff;
+		text-align: center;
+		p {
+			@include font-size(1.7);
+		}
+		a {
+			@include font-size(1.7);
+			color: $theme;
+		}
+		
+	}
+}
+.logos {
+	padding: 30px 0px;
+	border-top: 3px solid $theme;
+	.footer-logos .item img {
+	width: inherit;
+    }
+}
+

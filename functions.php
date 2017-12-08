@@ -10,6 +10,11 @@ if(!function_exists('theme_setup')) {
     'caption',
   ) );
     add_image_size('logo', 255, 135, true);
+    add_image_size('slider', 1600, 600, true);
+    add_image_size('header', 1600, 400, true);
+    add_image_size('nav_boxes', 800, 600, true);
+    add_image_size( 'my-thumbnail', 600, 600, true);
+    set_post_thumbnail_size( $width, $height, $crop ); 
 
 
   // This theme uses wp_nav_menu() in one location.
@@ -43,8 +48,8 @@ function theme_scripts() {
   if ( is_page_template('template-contact.php') ) { 
     wp_enqueue_script( 'googlemapsapi' ); 
   };
-    wp_register_script('scripts', $template_uri . '/scripts.js', ['jquery'], '', true);
-  wp_enqueue_script('scripts');
+    wp_register_script('scriptsall', $template_uri . '/scripts.js', ['jquery'], '', true);
+  wp_enqueue_script('scriptsall');
   }
    add_action('wp_enqueue_scripts', 'theme_scripts');
 
