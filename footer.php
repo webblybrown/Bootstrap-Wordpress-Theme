@@ -1,12 +1,13 @@
 <div class="nav-boxes container">
    
 		<?php
+    $i =1;
 		while( have_rows('nav_boxes', 'options') ): the_row();
 		$image = get_sub_field('image');
 		$text = get_sub_field('text');
 		$link = get_sub_field('link');
 		?>
-        <div class="col-md-4">
+        <div class="col-md-4 wow fadeIn" data-wow-duration="<?php echo $i; ?>s">
         <a href="<?php echo $link; ?>">
         <div class="overlay">
          <img src="<?php echo $image; ?>" class="img-responsive" />
@@ -15,12 +16,12 @@
         </div>
        </div></a>
       </div>
-		<?php endwhile; ?>
+		<?php $i++; endwhile; ?>
  
 </div>
 <div class="testimonial">
 <div class="container">
-  <div class="pad"><?php the_field('testimonials', 'options'); ?></div>
+  <div class="pad wow fadeIn" data-wow-duration="2s"><?php the_field('testimonials', 'options'); ?></div>
   <img src="<?php echo get_template_directory_uri(); ?>/images/quote-left.png" class="left" />
   <img src="<?php echo get_template_directory_uri(); ?>/images/quote-right.png" class="right" />
  </div>

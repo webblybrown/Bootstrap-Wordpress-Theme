@@ -227,3 +227,11 @@ function get_breadcrumb($post_parent) {
 // }
 
 // include_once( get_template_directory() . '/acf/acf-options-page/acf-options-page.php');
+
+
+function my_acf_init() {
+  
+  acf_update_setting('google_api_key', 'AIzaSyAPmK6ah9PPh8Vkt0oElKa5_Aq0ZeckAwc');
+}
+
+add_action('acf/init', 'my_acf_init');

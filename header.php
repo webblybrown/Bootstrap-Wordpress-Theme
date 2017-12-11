@@ -16,7 +16,7 @@
   <div class="container">
   <div class="row">
     <div class="col-md-6 text-left">
-      <a href="<?php echo site_url(); ?>"><img src="<?php the_field('logo', 'options'); ?>" /></a>
+      <a href="<?php echo site_url(); ?>"><img src="<?php the_field('logo', 'options'); ?>" class="wow fadeInDown" /></a>
     </div>
     <div class="col-md-6 text-right">
       <ul>

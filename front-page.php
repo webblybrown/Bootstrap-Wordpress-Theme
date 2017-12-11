@@ -28,7 +28,7 @@ get_header();
 <div class="slogan">
   <div class="container">
   	<hr />
-    <?php the_field('slogan_text'); ?>
+    <span class="wow fadeIn" data-wow-duration="2s"><?php the_field('slogan_text'); ?></span>
     <hr />
   </div>
 </div>

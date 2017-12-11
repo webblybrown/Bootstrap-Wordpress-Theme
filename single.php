@@ -55,7 +55,7 @@
 
 
 											$endDateField = get_field('job_end_date');
-												$endDate = date("d/m/y", strtotime($endDateField));
+											$endDate = get_field('job_end_date');
 											$salary = get_field('job_salary');
 											$location = get_field('job_location');
 											$hours = get_field('job_hours');

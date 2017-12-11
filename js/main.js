@@ -1,5 +1,8 @@
 (function($) {
 
+new WOW().init();
+
+
 $('.slider').owlCarousel({
     loop:true,
     animateOut: 'fadeOut',

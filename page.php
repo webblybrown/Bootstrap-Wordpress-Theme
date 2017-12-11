@@ -95,7 +95,7 @@ get_header(); ?>
                             
 
 							
-								<a href="/about/jobs">
+								<a href="<?php echo site_url(); ?>/vacancies/">
 									<div class="apply-now-button">                  
 										Available Jobs
 							    	</div>

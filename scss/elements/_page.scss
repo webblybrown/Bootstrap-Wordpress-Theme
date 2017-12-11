@@ -60,6 +60,10 @@
 }
 	}
 	.content {
+	ul {
+		list-style: disc;
+		padding-left: 50px;
+	}
 	h2, .job-block-title {
       	@include font-size(3);
       }
