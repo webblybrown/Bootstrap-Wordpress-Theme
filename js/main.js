@@ -24,9 +24,10 @@ $('.slider').owlCarousel({
 $('.footer-logos').owlCarousel({
     loop:true,
     animateOut: 'fadeOut',
-    autoplay:true,
+    autoplay:false,
     autoplayTimeout:1000,
-    autoplayHoverPause:true,
+    autoplayHoverPause:false,
+    margin: 10,
     responsive:{
         0:{
             items:3
@@ -56,6 +57,8 @@ $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp();
 $('.navbar .dropdown > a').click(function(){
 location.href = this.href;
 });
+
+
 
 
 

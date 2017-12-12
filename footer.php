@@ -88,6 +88,7 @@
  </footer>   
 
     <?php wp_footer(); ?>
+
 <script>
   (function($) {
   $("#menu-main-menu").prepend("<li><a href='<?php echo site_url(); ?>'><i class='fa fa-home' aria-hidden='true'></i></a></li>");

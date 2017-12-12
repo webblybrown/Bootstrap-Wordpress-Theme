@@ -13,6 +13,7 @@ if(!function_exists('theme_setup')) {
     add_image_size('slider', 1600, 600, true);
     add_image_size('header', 1600, 400, true);
     add_image_size('nav_boxes', 800, 600, true);
+    add_image_size('footer_logo', 250, 250, true);
     add_image_size( 'my-thumbnail', 600, 600, true);
     set_post_thumbnail_size( $width, $height, $crop ); 
 

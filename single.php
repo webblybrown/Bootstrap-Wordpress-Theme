@@ -2,7 +2,7 @@
 
 <div class="container page">
 							<ul class="breadcrumb">
-								<li><a href="/"><span>Home</span></a></li>
+								<i class='fa fa-home' aria-hidden='true'></i></a></li>
 								<?php
 									$ancestors_array = array_reverse(array_map('get_post', get_post_ancestors($post )));
 									$ancestors_array[] = $post;
