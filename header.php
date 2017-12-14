@@ -66,6 +66,12 @@
     </div>
     </div>
 </nav>
-
+<?php if( get_field('announcement', 'options') ): ?>
+<div class="anouncement">
+  <div class="container">
+ <?php the_field('announcement', 'options'); ?>
+</div>
+</div>
+<?php endif; ?>
 
 

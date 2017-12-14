@@ -108,11 +108,10 @@ get_header(); ?>
 						</div>
 
 				</div>
-                <div class="col-md-9 content">
+                <div class="col-md-9 content-page">
                 	<?php while ( have_posts() ) : the_post(); ?>
                 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-                		<?php echo do_shortcode('[contact-form-7 id="429" title="Contact Form"]'); ?>
-                		<hr />
+                		
 
 									<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -120,6 +119,9 @@ get_header(); ?>
 	<div class="entry-content">
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
+	<hr />
+	<?php echo do_shortcode('[contact-form-7 id="429" title="Contact Form"]'); ?>
+                		
 	<footer class="entry-footer">
 		<?php edit_post_link( __( 'Edit', 'orchard_hill' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->

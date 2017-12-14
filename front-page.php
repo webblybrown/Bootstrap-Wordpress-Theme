@@ -3,6 +3,9 @@
 Template Name: Home
 */
 get_header(); 
+if(have_posts()):
+  while(have_posts()): the_post();
+  	$image = get_field('page_header');
 ?>		
 
 <div class="owl-carousel owl-theme slider">
@@ -19,9 +22,11 @@ get_header();
 		</div>
 		<?php endwhile; ?>
 </div>
-
+<div class="container">
+	<?php the_content(); ?>
+</div>
 <div class="welcome container">
-			<h1>Head Teachers Welcome</h1>
+			<h1><?php the_field('head_teachers_heading'); ?></h1>
 			<div><?php the_field('head_teachers_welcome'); ?></div>
 			<p><span class="name"><?php the_field('headteacher_name'); ?></span> - Headteacher</p>
 </div>
@@ -32,7 +37,12 @@ get_header();
     <hr />
   </div>
 </div>
-
+ <?php
+  endwhile;
+else:
+  echo '<div class="container">Sorry, no posts matched your criteria</div>';
+endif;
+?>
 
 			
 
