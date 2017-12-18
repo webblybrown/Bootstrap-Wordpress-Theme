@@ -13,13 +13,14 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
+    <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
   <header>
   <div class="container">
   <div class="row">
-    <div class="col-md-6 text-left">
+    <div class="col-md-6 col-sm-6 text-left">
       <a href="<?php echo site_url(); ?>"><img src="<?php the_field('logo', 'options'); ?>" class="wow fadeInDown" /></a>
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-md-6 col-sm-6 text-right">
       <ul>
         <li><i class="fa fa-map-marker" aria-hidden="true"></i> <?php the_field('address', 'options'); ?></li>
         <li><i class="fa fa-phone" aria-hidden="true"></i> <?php the_field('phone_number', 'options'); ?></li>
