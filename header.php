@@ -8,35 +8,10 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
-  <header>
-  <div class="container">
-  <div class="row">
-    <div class="col-md-6 text-left">
-      <a href="<?php echo site_url(); ?>"><img src="<?php the_field('logo', 'options'); ?>" /></a>
-    </div>
-    <div class="col-md-6 text-right">
-      <ul>
-        <li><i class="fa fa-map-marker" aria-hidden="true"></i> <?php the_field('address', 'options'); ?></li>
-        <li><i class="fa fa-phone" aria-hidden="true"></i> <?php the_field('phone_number', 'options'); ?></li>
-        <li><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:<?php the_field('email', 'options'); ?>"><?php the_field('email', 'options'); ?></a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-</header>
-      <nav class="site-nav">
-        <div class="mini-nav">
-          <div class="w">
-            <?php wp_nav_menu(array('theme_location' => 'mini-nav')); ?>
-          </div>
-        </div>
-        </div>
-      </nav>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default navbar-fixed-top main-menu">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -46,10 +21,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-</div>
-
+      <a class="navbar-brand" href="<?php echo home_url(); ?>">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" />
+            </a>
+    </div>
     <div class="nav-walker">
-        <?php
+        <?php 
             wp_nav_menu( array(
                 'menu'              => 'primary',
                 'theme_location'    => 'primary',
@@ -65,6 +42,3 @@
     </div>
     </div>
 </nav>
-
-
-
