@@ -1,0 +1,21 @@
+// Fonts
+$_standard-font-family: 'Lato', sans-serif;
+
+// Colours
+$white: #fff;
+$color-body: #666;
+$color-link: #000;
+
+// Globals
+$transition-timing: .3s;
+$transition-delay: .5s;
+$default-animation-timing: 1s;
+
+// Base
+$body-font-stack: $_standard-font-family;
+$body-background-color: $white;
+$body-color: $color-body;
+
+// Defaults
+$default-link-color: $color-link;
+
