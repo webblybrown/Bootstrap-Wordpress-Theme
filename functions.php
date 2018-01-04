@@ -58,3 +58,29 @@ require_once('wp-bootstrap-navwalker.php');
 register_nav_menus( array(
         'primary' => __( 'Primary Menu', 'THEMENAME' ),
 ) );
+
+// Custom Login Page 
+
+function my_custom_login() {
+echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login/custom-login-styles.css" />';
+}
+add_action('login_head', 'my_custom_login');
+
+function my_login_logo_url() {
+return get_bloginfo( 'url' );
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+return 'Your Site Name and Info';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+function login_checked_remember_me() {
+add_filter( 'login_footer', 'rememberme_checked' );
+}
+add_action( 'init', 'login_checked_remember_me' );
+
+function rememberme_checked() {
+echo "<script>document.getElementById('rememberme').checked = true;</script>";
+}
