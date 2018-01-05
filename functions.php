@@ -26,6 +26,8 @@ function theme_scripts() {
   wp_enqueue_script('owl-js');
   wp_enqueue_script('wow-js', $template_uri . '/scripts/wow.js', array('jquery'), '0.1.0', true );
   wp_enqueue_script('wow-js');
+  wp_enqueue_script('parallux', $template_uri . '/scripts/parallux.js', array('jquery'), '0.1.0', true );
+  wp_enqueue_script('parallux');
   wp_enqueue_script('bootstrap-js', $template_uri . '/scripts/bootstrap.min.js', array('jquery'), '3.3.7', true );
   wp_enqueue_script('bootstrap-js');
   wp_register_script('scripts', $template_uri . '/scripts.js', ['jquery'], '', true);
